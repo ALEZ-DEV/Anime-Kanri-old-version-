@@ -14,22 +14,33 @@ namespace AnimeManager
     {
         List<string> DirList = new List<string>();
 
-        Manager manager = new Manager();
+        Manager manager;
+        SettingMenu settingMenu;
+        Setting settingRef;
 
-        string defaultPath;
         string path;
         List<string> pathHistory = new List<string>();
 
         public Form1()
         {
             InitializeComponent();
+            settingRef = new Setting();
+            manager = new Manager();
 
-            defaultPath = @"C:\Anime";
-            path = defaultPath;
-
-            DirList = manager.GetAllFolderOrFileName(path);
+            path = settingRef.defaultPath;
 
             fileExplorerBox.DoubleClick += new EventHandler(fileExplorerBoxItem_Click);
+
+            RefreshFileExplorerBox();
+        }
+
+        public void RefreshFileExplorerBox()
+        {
+            path = settingRef.defaultPath;
+            DirList.Clear();
+            pathHistory.Clear();
+
+            DirList = manager.GetAllFolderOrFileName(path);
 
             manager.BindListToListBox(fileExplorerBox, DirList, true);
         }
@@ -41,7 +52,7 @@ namespace AnimeManager
             {
                 pathHistory.RemoveAt(pathHistory.Count() - 1);
 
-                path = defaultPath;
+                path = settingRef.defaultPath;
 
                 foreach (string dir in pathHistory)
                 {
@@ -61,7 +72,7 @@ namespace AnimeManager
 
             DirList = manager.GetAllFolderOrFileName(path);
 
-            if (path == defaultPath)
+            if (path == settingRef.defaultPath)
             {
                 manager.BindListToListBox(fileExplorerBox, DirList, true);
             }
@@ -69,6 +80,12 @@ namespace AnimeManager
             {
                 manager.BindListToListBox(fileExplorerBox, DirList, false);
             }
+        }
+
+        private void setting_Click(object sender, EventArgs e)
+        {
+            settingMenu = new SettingMenu(settingRef, this);
+            settingMenu.Show();
         }
     }
 }

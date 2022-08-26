@@ -11,13 +11,6 @@ namespace AnimeManager
     public class Manager
     {
 
-        public Manager()
-        {
-
-
-
-        }
-
         public void BindListToListBox(ListBox listBox, List<string> list, bool rootDir)
         {
 
