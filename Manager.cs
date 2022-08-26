@@ -4,31 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace AnimeManager
 {
     public class Manager
     {
 
-        public List<string> list = new List<string>();
-
-        public void initList()
+        public Manager()
         {
 
-            list.Add("item1");
-            list.Add("item2");
-            list.Add("item3");
-            list.Add("item4");
-            list.Add("item5");
-            list.Add("item6");
-            list.Add("item7");
-            list.Add("item8");
-            list.Add("item9");
+
 
         }
 
-        public void BindListToListBox(ListBox listBox, List<string> list)
+        public void BindListToListBox(ListBox listBox, List<string> list, bool rootDir)
         {
+
+            listBox.Items.Clear();
+
+            if (!rootDir)
+            {
+                listBox.Items.Add("..");
+            }
 
             foreach (var i in list)
             {
@@ -36,6 +34,34 @@ namespace AnimeManager
                 listBox.Items.Add(i);
 
             }
+
+        }
+
+        public List<string> GetAllFolderOrFileName(string filePath)
+        {
+
+            DirectoryInfo dir = new DirectoryInfo(filePath);
+
+            FileInfo[] files = dir.GetFiles();
+            DirectoryInfo[] directory = dir.GetDirectories();
+
+            List<string> allFolderAndFileName = new List<string>();
+
+            foreach (DirectoryInfo dirN in directory)
+            {
+
+                allFolderAndFileName.Add(dirN.Name);
+
+            }
+
+            foreach (FileInfo file in files)
+            {
+
+                allFolderAndFileName.Add(file.Name);
+
+            }
+
+            return allFolderAndFileName;
 
         }
 
