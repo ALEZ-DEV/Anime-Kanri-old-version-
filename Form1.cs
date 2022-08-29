@@ -23,9 +23,12 @@ namespace AnimeManager
 
         public Form1()
         {
-            InitializeComponent();
             settingRef = new Setting();
+            settingRef.CheckDirectory();
+
             manager = new Manager();
+
+            InitializeComponent();
 
             path = settingRef.defaultPath;
 

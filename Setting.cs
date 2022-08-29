@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace AnimeManager
 
         public Setting()
         {
-            defaultPath = @"C:\Anime";
+            defaultPath = @"C:\Anima";
         }
 
         public void SetManager(Manager manager)
@@ -34,5 +35,15 @@ namespace AnimeManager
 
         }
 
+        public void CheckDirectory()
+        {
+            if (!Directory.Exists(defaultPath))
+            {
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
+                dialog.Description = "Choose a existing folder";
+                dialog.ShowDialog();
+                defaultPath = dialog.SelectedPath;
+            }
+        }
     }
 }
