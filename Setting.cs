@@ -17,7 +17,7 @@ namespace AnimeManager
 
         public Setting()
         {
-            defaultPath = @"C:\Anima";
+            defaultPath = @"C:\Anime";
         }
 
         public void SetManager(Manager manager)
