@@ -12,27 +12,24 @@ namespace AnimeManager
 {
     public partial class Form1 : Form
     {
-        List<string> DirList = new List<string>();
+        FDInfo DirList = new FDInfo();
 
-        Manager manager;
+        Manager manager = new Manager();
         SettingMenu settingMenu;
-        Setting settingRef;
+        Setting settingRef = new Setting();
 
         string path;
         List<string> pathHistory = new List<string>();
 
         public Form1()
         {
-            settingRef = new Setting();
             settingRef.CheckDirectory();
-
-            manager = new Manager();
 
             InitializeComponent();
 
             path = settingRef.defaultPath;
 
-            fileExplorerBox.DoubleClick += new EventHandler(fileExplorerBoxItem_Click);
+            fileExplorerDataGrid.CellDoubleClick += new DataGridViewCellEventHandler(fileExplorerBoxItem_Click);
 
             RefreshFileExplorerBox();
         }
@@ -43,15 +40,17 @@ namespace AnimeManager
             DirList.Clear();
             pathHistory.Clear();
 
-            DirList = manager.GetAllFolderOrFileName(path);
+            DirList = manager.GetAllFolderOrFile(path);
 
-            manager.BindListToListBox(fileExplorerBox, DirList, true);
+            manager.BindListToDataGridView(fileExplorerDataGrid, DirList, true);
         }
 
         private void fileExplorerBoxItem_Click(object sender, System.EventArgs e)
         {
 
-            if (fileExplorerBox.SelectedItem.ToString() == "..")
+            string fileName = fileExplorerDataGrid.SelectedRows[0].Cells[0].Value.ToString();
+
+            if (fileName == "..")
             {
                 pathHistory.RemoveAt(pathHistory.Count() - 1);
 
@@ -66,22 +65,22 @@ namespace AnimeManager
 
             } else
             {
-                path += @"\" + fileExplorerBox.SelectedItem.ToString();
-                pathHistory.Add(fileExplorerBox.SelectedItem.ToString());
+                path += @"\" + fileName;
+                pathHistory.Add(fileName);
             }
             
 
             DirList.Clear();
 
-            DirList = manager.GetAllFolderOrFileName(path);
+            DirList = manager.GetAllFolderOrFile(path);
 
             if (path == settingRef.defaultPath)
             {
-                manager.BindListToListBox(fileExplorerBox, DirList, true);
+                manager.BindListToDataGridView(fileExplorerDataGrid, DirList, true);
             }
             else
             {
-                manager.BindListToListBox(fileExplorerBox, DirList, false);
+                manager.BindListToDataGridView(fileExplorerDataGrid, DirList, false);
             }
         }
 
@@ -89,6 +88,11 @@ namespace AnimeManager
         {
             settingMenu = new SettingMenu(settingRef, this);
             settingMenu.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

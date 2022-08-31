@@ -11,26 +11,41 @@ namespace AnimeManager
     public class Manager
     {
 
-        public void BindListToListBox(ListBox listBox, List<string> list, bool rootDir)
+        public void BindListToDataGridView(DataGridView DataGridView, FDInfo list, bool rootDir)
         {
 
-            listBox.Items.Clear();
+            DataGridView.Rows.Clear();
+
+            List<string> name = list.GetName();
+            List<long> dataSize = list.GetDataSize();
+            List<bool> isFile = list.GetIsFile();
 
             if (!rootDir)
             {
-                listBox.Items.Add("..");
+                DataGridView.Rows.Add("..");
             }
 
-            foreach (var i in list)
+            int fileIndex = 0;
+
+            for (int i = 0; i < name.Count(); i++)
             {
 
-                listBox.Items.Add(i);
+                if (isFile[i])
+                {
+                    DataGridView.Rows.Add(name[i], dataSize[fileIndex]);
+                    fileIndex++;
+                } 
+                else
+                {
 
+                    DataGridView.Rows.Add(name[i]);
+
+                }
             }
 
         }
 
-        public List<string> GetAllFolderOrFileName(string filePath)
+        public FDInfo GetAllFolderOrFile(string filePath)
         {
 
             DirectoryInfo dir = new DirectoryInfo(filePath);
@@ -38,19 +53,19 @@ namespace AnimeManager
             FileInfo[] files = dir.GetFiles();
             DirectoryInfo[] directory = dir.GetDirectories();
 
-            List<string> allFolderAndFileName = new List<string>();
+            FDInfo allFolderAndFileName = new FDInfo();
 
             foreach (DirectoryInfo dirN in directory)
             {
 
-                allFolderAndFileName.Add(dirN.Name);
+                allFolderAndFileName.AddDirectory(dirN.Name);
 
             }
 
             foreach (FileInfo file in files)
             {
 
-                allFolderAndFileName.Add(file.Name);
+                allFolderAndFileName.AddFile(file.Name, file.Length);
 
             }
 
