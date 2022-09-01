@@ -32,7 +32,7 @@ namespace AnimeManager
 
                 if (isFile[i])
                 {
-                    DataGridView.Rows.Add(name[i], dataSize[fileIndex]);
+                    DataGridView.Rows.Add(name[i], GetDataSizeString(dataSize[fileIndex]));
                     fileIndex++;
                 } 
                 else
@@ -70,6 +70,34 @@ namespace AnimeManager
             }
 
             return allFolderAndFileName;
+
+        }
+
+        string GetDataSizeString(long dataSizeByte)
+        {
+
+            double dataSizeKB = dataSizeByte / 1024;
+
+            if (dataSizeKB < 1)
+            {
+                return $"{Math.Round(Convert.ToDouble(dataSizeByte), 2)} Byte";
+            }
+
+            double dataSizeMB = dataSizeKB / 1024;
+
+            if (dataSizeMB < 1)
+            {
+                return $"{Math.Round(dataSizeKB, 2)} KB";
+            }
+
+            double dataSizeGB = dataSizeMB / 1024;
+
+            if (dataSizeGB < 1)
+            {
+                return $"{Math.Round(dataSizeMB, 2)} MB";
+            }
+
+            return $"{Math.Round(dataSizeGB, 2)} GB";
 
         }
 
