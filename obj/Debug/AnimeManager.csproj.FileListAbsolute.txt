@@ -20,3 +20,4 @@ D:\C#Project\AnimeManager\AnimeManager\obj\Debug\AnimeManager.csproj.GenerateRes
 D:\C#Project\AnimeManager\AnimeManager\obj\Debug\AnimeManager.csproj.CoreCompileInputs.cache
 D:\C#Project\AnimeManager\AnimeManager\obj\Debug\AnimeManager.exe
 D:\C#Project\AnimeManager\AnimeManager\obj\Debug\AnimeManager.pdb
+D:\C#Project\AnimeManager\AnimeManager\obj\Debug\AnimeManager.SettingMenu.resources
