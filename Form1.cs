@@ -63,13 +63,19 @@ namespace AnimeManager
 
                 }
 
-            } else
+            }
+            else if (fileExplorerDataGrid.SelectedRows[0].Cells[1].Value.ToString() == "File")
+            {
+                label1.Text = "This is a fucking file";
+
+                manager.LoadVideo(path + @"\" + fileName);
+            }
+            else
             {
                 path += @"\" + fileName;
                 pathHistory.Add(fileName);
-            }
-            
 
+            }
             DirList.Clear();
 
             DirList = manager.GetAllFolderOrFile(path);
@@ -82,6 +88,7 @@ namespace AnimeManager
             {
                 manager.BindListToDataGridView(fileExplorerDataGrid, DirList, false);
             }
+            
         }
 
         private void setting_Click(object sender, EventArgs e)

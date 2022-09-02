@@ -33,6 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.fileExplorerDataGrid = new System.Windows.Forms.DataGridView();
             this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.fileExplorerDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +63,7 @@
             this.fileExplorerDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.fileExplorerDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Name,
+            this.type,
             this.Size});
             this.fileExplorerDataGrid.Location = new System.Drawing.Point(219, 12);
             this.fileExplorerDataGrid.MultiSelect = false;
@@ -78,6 +80,12 @@
             this.Name.HeaderText = "Name";
             this.Name.Name = "Name";
             this.Name.ReadOnly = true;
+            // 
+            // type
+            // 
+            this.type.HeaderText = "Type";
+            this.type.Name = "type";
+            this.type.ReadOnly = true;
             // 
             // Size
             // 
@@ -105,6 +113,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView fileExplorerDataGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Size;
     }
 }

@@ -1,0 +1,15 @@
+D:\C#Project\AnimeManager\AnimeManager\bin\x64\Debug\AnimeManager.exe.config
+D:\C#Project\AnimeManager\AnimeManager\bin\x64\Debug\AnimeManager.exe
+D:\C#Project\AnimeManager\AnimeManager\bin\x64\Debug\AnimeManager.pdb
+D:\C#Project\AnimeManager\AnimeManager\bin\x64\Debug\Mpv.NET.dll
+D:\C#Project\AnimeManager\AnimeManager\bin\x64\Debug\Mpv.NET.pdb
+D:\C#Project\AnimeManager\AnimeManager\obj\x64\Debug\AnimeManager.csproj.AssemblyReference.cache
+D:\C#Project\AnimeManager\AnimeManager\obj\x64\Debug\AnimeManager.csproj.SuggestedBindingRedirects.cache
+D:\C#Project\AnimeManager\AnimeManager\obj\x64\Debug\AnimeManager.Form1.resources
+D:\C#Project\AnimeManager\AnimeManager\obj\x64\Debug\AnimeManager.Properties.Resources.resources
+D:\C#Project\AnimeManager\AnimeManager\obj\x64\Debug\AnimeManager.SettingMenu.resources
+D:\C#Project\AnimeManager\AnimeManager\obj\x64\Debug\AnimeManager.csproj.GenerateResource.cache
+D:\C#Project\AnimeManager\AnimeManager\obj\x64\Debug\AnimeManager.csproj.CoreCompileInputs.cache
+D:\C#Project\AnimeManager\AnimeManager\obj\x64\Debug\AnimeManager.csproj.CopyComplete
+D:\C#Project\AnimeManager\AnimeManager\obj\x64\Debug\AnimeManager.exe
+D:\C#Project\AnimeManager\AnimeManager\obj\x64\Debug\AnimeManager.pdb

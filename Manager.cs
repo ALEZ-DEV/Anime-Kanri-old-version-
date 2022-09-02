@@ -5,11 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using LibVLCSharp.Shared;
+using LibVLCSharp.WPF;
 
 namespace AnimeManager
 {
     public class Manager
     {
+
+        VlcPlayerForm VLCplayer;
+
+        public Manager()
+        {
+            
+            
+
+        }
 
         public void BindListToDataGridView(DataGridView DataGridView, FDInfo list, bool rootDir)
         {
@@ -32,13 +43,13 @@ namespace AnimeManager
 
                 if (isFile[i])
                 {
-                    DataGridView.Rows.Add(name[i], GetDataSizeString(dataSize[fileIndex]));
+                    DataGridView.Rows.Add(name[i], GetDirType(isFile[i]),GetDataSizeString(dataSize[fileIndex]));
                     fileIndex++;
                 } 
                 else
                 {
 
-                    DataGridView.Rows.Add(name[i]);
+                    DataGridView.Rows.Add(name[i], GetDirType(isFile[i]));
 
                 }
             }
@@ -99,6 +110,28 @@ namespace AnimeManager
 
             return $"{Math.Round(dataSizeGB, 2)} GB";
 
+        }
+
+        string GetDirType(bool isFile)
+        {
+
+            if (isFile)
+            {
+                return "File";
+            }
+            else
+            {
+                return "Directory";
+            }
+
+        }
+
+        public void LoadVideo(string videoPath)
+        {
+
+            VLCplayer = new VlcPlayerForm(videoPath);
+            VLCplayer.Show();
+            
         }
 
     }
