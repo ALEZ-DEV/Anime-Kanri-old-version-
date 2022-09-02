@@ -26,6 +26,7 @@ namespace AnimeManager
             settingRef.CheckDirectory();
 
             InitializeComponent();
+            LibVLCSharp.Shared.Core.Initialize();
 
             path = settingRef.defaultPath;
 

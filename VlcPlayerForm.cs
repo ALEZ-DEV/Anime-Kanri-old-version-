@@ -15,14 +15,13 @@ namespace AnimeManager
     public partial class VlcPlayerForm : Form
     {
         MediaPlayer player;
+        LibVLC libVlc;
 
         public VlcPlayerForm(string videoPath)
         {
             InitializeComponent();
 
-            LibVLCSharp.Shared.Core.Initialize();
-
-            LibVLC libVlc = new LibVLC();
+            libVlc = new LibVLC();
             Media media = new Media(libVlc, videoPath);
 
             player = new MediaPlayer(media);
