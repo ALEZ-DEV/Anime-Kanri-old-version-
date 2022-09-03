@@ -11,7 +11,7 @@ This is a simple video manager with video player build-in ,torrent download and 
 > so you have juste to open the file in the app and watch !
 
 3. torrent download
-> we'll use the [QBitTorrent C# API](https://github.com/teug91/qBittorrentSharp) for make the video download more simple for people, 
+> we'll use the [Lib VLC C# API](https://github.com/videolan/libvlcsharp) for make the video download more simple for people, 
 > but if you don't want to use it, you can still your Torrent download app
 
 4. MyAnimeListTracker (only for anime fan)
