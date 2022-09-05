@@ -7,11 +7,11 @@ This is a simple video manager with video player build-in ,torrent download and 
 we'll add a file manager for add, remove, move or juste see the file
 
 ### video player build-in
-we'll use the [MPV C# API](https://github.com/hudec117/Mpv.NET-lib-) for add a video player, 
+we'll use the [Lib VLC C# API](https://github.com/videolan/libvlcsharp) for add a video player, 
 so you have juste to open the file in the app and watch !
 
 ### torrent download
-we'll use the [Lib VLC C# API](https://github.com/videolan/libvlcsharp) for make the video download more simple for people, 
+we'll use the [qBitTorrent C# API](https://www.qbittorrent.org/) for make the video download more simple for people, 
 but if you don't want to use it, you can still your Torrent download app
 
 ### MyAnimeListTracker (only for anime fan)
