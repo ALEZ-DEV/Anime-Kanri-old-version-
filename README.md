@@ -1,4 +1,4 @@
-# AnimeManager
+# Anime Kanri
 This is a simple video manager with video player build-in ,torrent download and other feature
 
 ## The all feature to had in the future (the main feature)
