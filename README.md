@@ -1,6 +1,8 @@
 # Anime Kanri
 This is a simple video manager with video player build-in ,torrent download and other feature
 
+# !!This is the old version (I'm reworking the app in Java for multiple reason)!!
+
 ## The all feature to had in the future (the main feature)
 
 ### file management
